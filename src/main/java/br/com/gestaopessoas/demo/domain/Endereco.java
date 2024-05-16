@@ -10,14 +10,16 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Pessoa implements Serializable{
+public class Endereco implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nomeCompleto;
-    private Data dataNascimento;
-    private Endereco Endereco;
+	private String logradouro;
+    private Number CEP;
+    private Number numero;
+    private String cidade;
+    private String estado;
     
 }
