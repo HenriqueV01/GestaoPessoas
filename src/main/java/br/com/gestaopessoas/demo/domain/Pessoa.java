@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
+//import lombok.Data;
 
 @Entity
 //@Data
@@ -21,13 +21,13 @@ public class Pessoa implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nomeCompleto;
-    private Data dataNascimento;
+    private Integer dataNascimento;
     @OneToMany(mappedBy="pessoa", cascade=CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 
     public Pessoa() {}
        
-    public Pessoa(Integer id, String nomeCompleto, Data dataNascimento, List<Endereco> enderecos) {
+    public Pessoa(Integer id, String nomeCompleto, Integer dataNascimento, List<Endereco> enderecos) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
@@ -42,11 +42,11 @@ public class Pessoa implements Serializable{
 		this.nomeCompleto = nomeCompleto;
 	}
 
-    public Data getDataNascimento() {
+    public Integer getDataNascimento() {
 		return this.dataNascimento;
 	}
 
-	public void setDataNascimento(Data dataNascimento) {
+	public void setDataNascimento(Integer dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
