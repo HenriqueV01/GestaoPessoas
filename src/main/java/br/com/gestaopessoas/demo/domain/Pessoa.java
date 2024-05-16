@@ -1,15 +1,19 @@
 package br.com.gestaopessoas.demo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
-@Data
+//@Data
 public class Pessoa implements Serializable{
     private static final long serialVersionUID = 1L;
 
@@ -18,6 +22,40 @@ public class Pessoa implements Serializable{
 	private Integer id;
 	private String nomeCompleto;
     private Data dataNascimento;
-    private Endereco Endereco;
+    @OneToMany(mappedBy="pessoa", cascade=CascadeType.ALL)
+	private List<Endereco> enderecos = new ArrayList<>();
+
+    public Pessoa() {}
+       
+    public Pessoa(Integer id, String nomeCompleto, Data dataNascimento, List<Endereco> enderecos) {
+        this.id = id;
+        this.nomeCompleto = nomeCompleto;
+        this.dataNascimento = dataNascimento;
+        this.enderecos = enderecos;
+    }
+
+    public String getNomeCompleto() {
+		return this.nomeCompleto;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
+
+    public Data getDataNascimento() {
+		return this.dataNascimento;
+	}
+
+	public void setDataNascimento(Data dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+    public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
     
 }
