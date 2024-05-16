@@ -4,7 +4,7 @@ A API desenvolvida deve permitir:
 - Criar, editar e consultar um ou mais endereços de uma pessoa; e
 - Poder indicar qual endereço será considerado o principal de uma pessoa.
 
-Banco H2 - /h2-console
+**Banco H2** - http://localhost:8080/pessoas/h2-console
 
 Exemplo Json:
 ```json
