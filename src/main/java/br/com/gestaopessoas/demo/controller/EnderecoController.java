@@ -29,7 +29,7 @@ public class EnderecoController {
 	private EnderecoService service;
 
     @GetMapping("/")
-    public ResponseEntity<List<Endereco>> findAll(@RequestParam String param) {        
+    public ResponseEntity<List<Endereco>> findAll() {        
         List<Endereco> listEnderecos = service.findAll();
         return ResponseEntity.ok().body(listEnderecos);
     }
