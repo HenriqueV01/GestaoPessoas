@@ -3,8 +3,8 @@ package br.com.gestaopessoas.demo.controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.gestaopessoas.demo.domain.Pessoa;
-import br.com.gestaopessoas.demo.services.PessoaService;
+import br.com.gestaopessoas.demo.domain.Endereco;
+import br.com.gestaopessoas.demo.services.EnderecoService;
 
 import java.net.URI;
 import java.util.List;
@@ -21,45 +21,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
-
-
-
 @RestController
-@RequestMapping(value = "/pessoas")
-public class Controller {
+@RequestMapping(value = "/enderecos")
+public class EnderecoController {
 
     @Autowired
-	private PessoaService service;
+	private EnderecoService service;
 
     @GetMapping("/")
-    public ResponseEntity<List<Pessoa>> findAll(@RequestParam String param) {        
-        List<Pessoa> listPessoas = service.findAll();
-        return ResponseEntity.ok().body(listPessoas);
+    public ResponseEntity<List<Endereco>> findAll(@RequestParam String param) {        
+        List<Endereco> listEnderecos = service.findAll();
+        return ResponseEntity.ok().body(listEnderecos);
     }
     
     
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Pessoa> findById(@PathVariable Integer id) {
-        Optional<Pessoa> pessoa = service.findById(id);
-        return ResponseEntity.ok().body(pessoa.get());
+    public ResponseEntity<Endereco> findById(@PathVariable Integer id) {
+        Optional<Endereco> endereco = service.findById(id);
+        return ResponseEntity.ok().body(endereco.get());
     }
 
     @PostMapping("/")
-    public ResponseEntity<Void> insert(@Validated @RequestBody Pessoa pessoa) {
-        Pessoa objPessoa = service.insert(pessoa);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objPessoa.getId()).toUri();
+    public ResponseEntity<Void> insert(@Validated @RequestBody Endereco endereco) {
+        Endereco objEndereco = service.insert(endereco);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objEndereco.getId()).toUri();
 		return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Void> update(@Validated @RequestBody Pessoa pessoa, @PathVariable Integer id) {
-		pessoa.setId(id);
-        service.update(pessoa);
+    public ResponseEntity<Void> update(@Validated @RequestBody Endereco endereco, @PathVariable Integer id) {
+		endereco.setId(id);
+        service.update(endereco);
 		return ResponseEntity.noContent().build();
-    }
-    
-    
+    }   
     
 }
