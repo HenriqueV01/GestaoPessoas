@@ -29,7 +29,7 @@ public class PessoaController {
 	private PessoaService service;
 
     @GetMapping("/")
-    public ResponseEntity<List<Pessoa>> findAll(@RequestParam String param) {        
+    public ResponseEntity<List<Pessoa>> findAll() {        
         List<Pessoa> listPessoas = service.findAll();
         return ResponseEntity.ok().body(listPessoas);
     }
