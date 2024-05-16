@@ -28,18 +28,19 @@ public class Endereco implements Serializable{
 
     @JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="pessoa")
+	@JoinColumn(name="pessoa_id")
 	private Pessoa pessoa;
 
     public Endereco() {}
 
-    public Endereco(Integer id, String logradouro, Integer CEP, Integer numero, String cidade, String estado) {
+    public Endereco(Integer id, String logradouro, Integer CEP, Integer numero, String cidade, String estado, Pessoa pessoa) {
         this.id = id;
         this.logradouro = logradouro;
         this.CEP = CEP;
         this.numero = numero;
         this.cidade = cidade;
         this.estado = estado;
+        this.pessoa = pessoa;
     }
 
     public Integer getId() {
