@@ -31,8 +31,8 @@ public class EnderecoService {
 	}
 
     public Endereco update(Endereco obj) {
-		Optional<Endereco> newEndereco = enderecoRepository.findById(obj.getId());
-		return enderecoRepository.save(newEndereco.get());
+		//Optional<Endereco> newEndereco = enderecoRepository.findById(obj.getId());
+		return enderecoRepository.save(obj);
 	}
 
     public List<Endereco> findAll(){

@@ -49,7 +49,6 @@ public class PessoaController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> update(@Validated @RequestBody Pessoa pessoa, @PathVariable Integer id) {
-		pessoa.setId(id);
         service.update(pessoa);
 		return ResponseEntity.noContent().build();
     }

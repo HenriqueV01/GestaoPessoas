@@ -49,7 +49,6 @@ public class EnderecoController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> update(@Validated @RequestBody Endereco endereco, @PathVariable Integer id) {
-		endereco.setId(id);
         service.update(endereco);
 		return ResponseEntity.noContent().build();
     }   

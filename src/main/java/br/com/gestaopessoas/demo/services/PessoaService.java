@@ -35,8 +35,8 @@ public class PessoaService {
 	}
 
     public Pessoa update(Pessoa obj) {
-		Optional<Pessoa> newPessoa = pessoaRepository.findById(obj.getId());
-		return pessoaRepository.save(newPessoa.get());
+		//Optional<Pessoa> newPessoa = pessoaRepository.findById(obj.getId());
+		return pessoaRepository.save(obj);
 	}
 
     public List<Pessoa> findAll(){
