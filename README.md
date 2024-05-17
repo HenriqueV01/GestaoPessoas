@@ -4,7 +4,12 @@ A API desenvolvida deve permitir:
 - Criar, editar e consultar um ou mais endereços de uma pessoa; e
 - Poder indicar qual endereço será considerado o principal de uma pessoa.
 
-**Banco H2** - http://localhost:8080/h2-console
+**Documentação Swagger:**
+- http://localhost:8080/swagger-ui/index.html
+
+**Banco H2:**
+- http://localhost:8080/h2-console
+
 ```sql
 INSERT INTO
   pessoa
@@ -26,12 +31,23 @@ VALUES
 
 Exemplo Json:
 ```json
+Pessoa:
 {
     "id": 1,
     "nomeCompleto": "Joao",
     "dataNascimento": 1012000,
     "enderecos": []
 }
+
+Endereço:
+{
+    "id": 1,
+    "logradouro": "Centro",
+    "numero": 123,
+    "cidade": "Recife",
+    "estado": "PE",
+    "cep": 54000
+  }
 ```
 
 ##
