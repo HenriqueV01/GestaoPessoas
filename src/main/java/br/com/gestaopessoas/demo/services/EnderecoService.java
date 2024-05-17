@@ -24,7 +24,8 @@ public class EnderecoService {
 
     @Transactional
 	public Endereco insert(Endereco obj) {
-		obj.setId(null);
+		//obj.setId(null);
+		System.out.println(obj.getId());
 		obj = enderecoRepository.save(obj);
 		return obj;
 	}
