@@ -34,9 +34,18 @@ Exemplo Json:
 Pessoa:
 {
     "id": 1,
-    "nomeCompleto": "Joao",
+    "nomeCompleto": "joao",
     "dataNascimento": 1012000,
-    "enderecos": []
+    "enderecos": [
+      {
+        "id": 1,
+        "logradouro": "Centro",
+        "numero": 123,
+        "cidade": "Recife",
+        "estado": "PE",
+        "cep": 54000
+      }
+    ]
 }
 
 Endereço:
