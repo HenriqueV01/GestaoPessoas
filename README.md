@@ -9,6 +9,8 @@ A API desenvolvida deve permitir:
 
 **Banco H2:**
 - http://localhost:8080/h2-console
+- username=sa
+- password=
 
 ```sql
 INSERT INTO
