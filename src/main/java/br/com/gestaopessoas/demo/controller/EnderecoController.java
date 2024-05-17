@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping(value = "/enderecos")
+@RequestMapping(value = "/api/enderecos")
 public class EnderecoController {
 
     @Autowired
